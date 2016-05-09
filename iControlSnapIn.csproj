@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{244E2D87-FECB-48F6-84AF-FD86F21844B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iControlSnapIn</RootNamespace>
+    <AssemblyName>iControlSnapIn</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug_x86\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\release_x86\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\Debug_x64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>..\bin\Release_x64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\Debug_x86\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>..\bin\Release_x86\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="iControl, Version=9.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Reference\iControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Reference Assemblies\Microsoft\WindowsPowerShell\v1.0\System.Management.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CmdLet\Deployment\DeploymentPSCmdLet.cs" />
+    <Compile Include="CmdLet\Deployment\New-SharePoint2007Deployment.cs" />
+    <Compile Include="CmdLet\Deployment\Remove-SharePoint2007Deployment.cs" />
+    <Compile Include="CmdLet\Global\Get-iControlCommands.cs" />
+    <Compile Include="CmdLet\iControlNouns.cs" />
+    <Compile Include="CmdLet\iControlPSCmdlet.cs" />
+    <Compile Include="CmdLet\Global\Get-iControl.cs" />
+    <Compile Include="CmdLet\iControlVerbs.cs" />
+    <Compile Include="CmdLet\LTM\NodeAddress\Disable-LTMNodeAddress.cs" />
+    <Compile Include="CmdLet\LTM\NodeAddress\Enable-LTMNodeAddress.cs" />
+    <Compile Include="CmdLet\LTM\NodeAddress\Get-LTMNodeAddress.cs" />
+    <Compile Include="CmdLet\LTM\PoolMember\Get-LTMPoolMemberState.cs" />
+    <Compile Include="CmdLet\LTM\PoolMember\Set-LTMPoolMemberState.cs" />
+    <Compile Include="CmdLet\LTM\PoolMember\Move-LTMPoolMember.cs" />
+    <Compile Include="CmdLet\LTM\PoolMember\Disable-LTMPoolMember.cs" />
+    <Compile Include="CmdLet\LTM\PoolMember\Enable-LTMPoolMember.cs" />
+    <Compile Include="CmdLet\LTM\PoolMember\Get-LTMPoolMember.cs" />
+    <Compile Include="CmdLet\LTM\PoolMember\Remove-LTMPoolMember.cs" />
+    <Compile Include="CmdLet\LTM\PoolMember\Add-LTMPoolMember.cs" />
+    <Compile Include="CmdLet\LTM\Pool\Get-LTMPool.cs" />
+    <Compile Include="CmdLet\LTM\Rule\Get-LTMRule.cs" />
+    <Compile Include="CmdLet\LTM\VirtualServer\Add-LTMVirtualServerRule.cs" />
+    <Compile Include="CmdLet\LTM\VirtualServer\Get-LTMVirtualServerRule.cs" />
+    <Compile Include="CmdLet\LTM\VirtualServer\Remove-LTMVirtualServerRule.cs" />
+    <Compile Include="CmdLet\LTM\VirtualServer\Enable-LTMVirtualServer.cs" />
+    <Compile Include="CmdLet\LTM\VirtualServer\Disable-LTMVirtualServer.cs" />
+    <Compile Include="CmdLet\LTM\VirtualServer\Get-LTMVirtualServer.cs" />
+    <Compile Include="CmdLet\LTM\VirtualServer\Get-LTMVirtualServerStatistics.cs" />
+    <Compile Include="CmdLet\Management\DBVariable\Get-DBVariable.cs" />
+    <Compile Include="CmdLet\Management\DBVariable\Set-DBVariable.cs" />
+    <Compile Include="CmdLet\LTM\RAMCache\Remove-LTMRAMCacheEntries.cs" />
+    <Compile Include="CmdLet\LTM\RAMCache\Get-LTMRAMCacheEntries.cs" />
+    <Compile Include="CmdLet\System\ConfigSync\Upload-File.cs" />
+    <Compile Include="CmdLet\System\ConfigSync\Download-File.cs" />
+    <Compile Include="CmdLet\System\ConfigSync\Upload-Configuration.cs" />
+    <Compile Include="CmdLet\System\ConfigSync\Download-Configuration.cs" />
+    <Compile Include="CmdLet\System\ConfigSync\Rollback-Configuration.cs" />
+    <Compile Include="CmdLet\System\ConfigSync\Remove-File.cs" />
+    <Compile Include="CmdLet\System\ConfigSync\Remove-Configuration.cs" />
+    <Compile Include="CmdLet\System\ConfigSync\Load-Configuration.cs" />
+    <Compile Include="CmdLet\System\ConfigSync\Save-Configuration.cs" />
+    <Compile Include="CmdLet\System\ConfigSync\Get-ConfigurationList.cs" />
+    <Compile Include="CmdLet\System\SystemInfo\Get-SystemTimeZone.cs" />
+    <Compile Include="CmdLet\System\SystemInfo\Get-SystemTime.cs" />
+    <Compile Include="CmdLet\System\SystemInfo\Get-SystemId.cs" />
+    <Compile Include="CmdLet\System\SystemInfo\Get-SystemUptime.cs" />
+    <Compile Include="CmdLet\System\SystemInfo\Get-SystemPowerUsage.cs" />
+    <Compile Include="CmdLet\System\SystemInfo\Get-SystemMemoryUsage.cs" />
+    <Compile Include="CmdLet\System\SystemInfo\Get-SystemFanUsage.cs" />
+    <Compile Include="CmdLet\System\SystemInfo\Get-SystemDiskUsage.cs" />
+    <Compile Include="CmdLet\System\SystemInfo\Get-SystemCPUUsage.cs" />
+    <Compile Include="CmdLet\System\SystemInfo\Get-ProductInformation.cs" />
+    <Compile Include="CmdLet\System\SystemInfo\Get-SystemInformation.cs" />
+    <Compile Include="Globals.cs" />
+    <Compile Include="Provider\iControlProvider.cs" />
+    <Compile Include="Provider\iControlPSDriveInfo.cs" />
+    <Compile Include="TypeData\iControlPSItem.cs" />
+    <Compile Include="CmdLet\Global\Initialize-iControl.cs" />
+    <Compile Include="Provider\PathInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PSSnapin.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Provider\StringContentReader.cs" />
+    <Compile Include="Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FormatData\iControlFormat.ps1xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TypeData\iControlTypes.ps1xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Help\Cmdlets.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Readme.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="setupSnapIn.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="iControlSnapIn.psc1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CmdLet\LTM\Class\" />
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

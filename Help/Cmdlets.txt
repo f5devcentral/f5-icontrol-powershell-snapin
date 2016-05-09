@@ -1,0 +1,76 @@
+--------------------------
+Cmdlets
+--------------------------
+
+# GLobal
+Initialize-iControl -Hostname <hostname> -Credentials <creds>
+Get-iControl
+Get-iControlCommands
+
+# Class
+* Get-Class -Type <Address|String|Value> -Name <class_name>
+* Create-Class -Type <Address|String|Value> -Name <class_name> -Members <member_list>
+* Remove-Class -Type <Address|String|Value> -Name <class_name>
+* Get-ClassMember -Type <Address|String|Value> -Name <class_name> -Member <member_value>
+* Add-ClassMember  -Type <Address|String|Value> -Name <class_name> -Member <member_value>
+* Remove-ClassMember  -Type <Address|String|Value> -Name <class_name> -Member <member_value>
+
+# NodeAddress
+Get-LTMNodeAddress -Node <address>
+Enable-LTMNodeAddress -Node <address>
+Disable-LTMNodeAddress -Node <address>
+
+# Pool
+Get-LTMPool -Pool <pool_name>
+
+# PoolMember
+Add-LTMPoolMember -Pool <pool_name> -Member <ip:port>
+Remove-LTMPoolMember -Pool <pool_name> -Member <ip:port>
+Get-LTMPoolMember -Pool <pool_name> 
+Enable-LTMPoolMember -Pool <pool_name> -Member <ip:port>
+Disable-LTMPoolMember -Pool <pool_name> -Member <ip:port>
+Move-LTMPoolMember -Pool <pool1> -Member <ip:port> -Target <pool2> 
+
+# RamCache
+Get-RAMCacheEntries -ProfileName <profile_name> -Hostname <hostname> -Uri <url> -MaxResponses <max_responses>
+Remove-RAMCacheEntries -ProfileName <profile_name> -Hostname <hostname> -Uri <url> 
+
+# Rule
+Get-LTMRule -Rule <rule_name>
+* Add-LTMRule
+* Remove-LTMRule
+
+# VirtualServer
+Get-LTMVirtualServer -VirtualServer <virtual_name>
+Enable-VirtualServer -VirtualServer <virtual_name>
+Disable-VirtualServer -VirtualServer <virtual_name>
+
+# DBVariable
+Get-DBVariable -Name <variable_name>
+Set-DBVariable -Name <variable_name> -Value <variable_value>
+
+# SystemInfo
+Get-SystemInformation
+Get-ProductInformation
+Get-SystemCPUUsage
+Get-SystemDiskUsage
+Get-SystemFanUsage
+Get-SystemMemoryUsage
+Get-SystemPowerUsage
+Get-SystemId
+Get-SystemTime
+Get-SystemTimeZone
+Get-SystemUptime
+
+# ConfigSync
+Get-ConfigurationList 
+Load-Configuration -Name <config_name> -Mode <High|Base>
+Save-Configuration -Name <config_name> -Mode <Full|High|Base>
+Upload-Configuration -LocalFile <local_file> -Name <config_name>
+Download-Configuration -Name <config_name> -LocalFile <local_file>
+Rollback-Configuration -Name <config_name>
+Remove-Configuration -Name <config_name>
+Upload-File -LocalFile <local_file> -RemoteFile <remote_file>
+Download-File -RemoteFile <remote_file> -LocalFile <local_file>
+Remove-File -RemoteFile <remote_file>
+
