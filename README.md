@@ -20,19 +20,19 @@ PS: > Add-PSSnapIn -iControlSnapIn
 Now, the SnapIn is loaded into the runtime.  You can now make iControl calls.  To get a list of all the iControl CmdLets, you can use the following Cmdlet.
 
 ```powershell
-PS: > Get-iControlCommands
+PS: > Get-F5.iControlCommands
 ```
 
 This will list all available iControl Cmdlets included in the iControlSnapIn.  Before making any of the other calls, you will have to initialize the iControl connection to the BIG-IP with the Initialize-iControl Cmdlet.
 
 ```powershell
-PS: > Initialize-iControl -Hostname <bigip_address> -Credentials (Get-Credential)
+PS: > Initialize-F5.iControl -Hostname <bigip_address> -Credentials (Get-Credential)
 ```
 
 This will prompt with a dialog box for the connection credentials.  If you prefer to pass them in in clear text, you can use the following optional parameters
 
 ```powershell
-PS: > Initialize-iControl -Hostname <bigip_address> -Username <username> -Password <password>
+PS: > Initialize-F5.iControl -Hostname <bigip_address> -Username <username> -Password <password>
 ```
 
 Now, just give them all a shot.  Remember you can always use autocomplete to find out the parameters for each cmdlet.
