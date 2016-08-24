@@ -14,7 +14,7 @@ PS: c:\program files\f5 networks> .\setupSnapIn.ps1
 Once you've installed the SnapIn into PowerShells SnapIn directory, you can instantiate the SnapIn as follows
 
 ```powershell
-PS: > Add-PSSnapIn -iControlSnapIn
+PS: > Add-PSSnapIn -Name iControlSnapIn
 ```
 
 Now, the SnapIn is loaded into the runtime.  You can now make iControl calls.  To get a list of all the iControl CmdLets, you can use the following Cmdlet.
