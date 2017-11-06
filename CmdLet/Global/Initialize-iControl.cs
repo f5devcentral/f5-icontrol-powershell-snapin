@@ -114,7 +114,14 @@ namespace iControlSnapIn.CmdLet.Global
 			set { _proxy_pass = value; }
 		}
 
-
+        private Boolean _force_http = false;
+        [Parameter(Position = 11, HelpMessage = "Force the iControl connection to not use https")]
+        [ValidateNotNullOrEmpty]
+        public Boolean ForceHttp
+        {
+            get { return _force_http; }
+            set { _force_http = value; }
+        }
 
         #endregion
 
@@ -196,19 +203,31 @@ namespace iControlSnapIn.CmdLet.Global
 					if (!string.IsNullOrEmpty(_username) && !(string.IsNullOrEmpty(_password)))
 					{
 						String[] sSplit = _hostname.Split(new char[] { ':' });
+                        String hostname = sSplit[0];
+                        long port = 443;
+                        if (2 == sSplit.Length) {
+                            port = Convert.ToInt32(sSplit[1]);
+                        }
+                        Boolean use_https = (443 == port) | !_force_http;
+
 						if ((null != _proxy_address) && (0 != _proxy_port))
 						{
-							initialized =
+                            initialized = GetiControl().initialize(hostname, port, _username, _password, _proxy_address, _proxy_port, _proxy_user, _proxy_pass, use_https);
+/*							initialized =
 								(2 == sSplit.Length) ?
-								GetiControl().initialize(sSplit[0], Convert.ToUInt32(sSplit[1]), _username, _password, _proxy_address, _proxy_port, _proxy_user, _proxy_pass) :
-								GetiControl().initialize(_hostname, 443, _username, _password, _proxy_address, _proxy_port, _proxy_user, _proxy_pass);
+								GetiControl().initialize(sSplit[0], Convert.ToUInt32(sSplit[1]), _username, _password, _proxy_address, _proxy_port, _proxy_user, _proxy_pass, use_https) :
+								GetiControl().initialize(_hostname, 443, _username, _password, _proxy_address, _proxy_port, _proxy_user, _proxy_pass, use_https);
+ */
 						}
 						else
 						{
+                            initialized = GetiControl().initialize(hostname, port, _username, _password, use_https);
+                            /*
 							initialized =
 								(2 == sSplit.Length) ?
-								GetiControl().initialize(sSplit[0], Convert.ToUInt32(sSplit[1]), _username, _password) :
-								GetiControl().initialize(_hostname, _username, _password);
+								GetiControl().initialize(sSplit[0], Convert.ToUInt32(sSplit[1]), _username, _password, use_https) :
+								GetiControl().initialize(_hostname, port, _username, _password, use_https);
+                             */
 						}	                        
 					}
 				}
